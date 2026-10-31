@@ -80,7 +80,7 @@ SSH into your Pi, then:
 
 ```bash
 sudo apt update && sudo apt install -y git
-git clone https://github.com/YOUR-USERNAME/pinas-setup.git
+git clone https://github.com/KskRoyal/pinas-setup.git
 cd pinas-setup
 
 # 1. Preview: answer the questions, see exactly what would change, change nothing
