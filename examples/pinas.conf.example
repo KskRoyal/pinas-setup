@@ -1,0 +1,31 @@
+# Example answers for non-interactive mode:
+#   sudo bash pinas-setup.sh --config pinas.conf
+# Lines are KEY=value. This file is parsed, never executed.
+
+# What to do with the drive: keep | format_part | wipe_disk
+ACTION=keep
+
+# keep / format_part: the partition (or use PART_UUID=... instead)
+PART=/dev/sda1
+# wipe_disk: the whole disk instead
+#DISK=/dev/sda
+
+# Required for format_part / wipe_disk: must exactly match PART or DISK above
+#CONFIRM_ERASE=/dev/sda1
+
+MOUNT_POINT=/srv/nas
+FS_LABEL=NASDATA
+SHARE_NAME=NAS
+SMB_USER=nasadmin
+# Create SMB_USER as a file-sharing-only account if it doesn't exist
+CREATE_USER=no
+FOLDERS="Shared Backups Media"
+APPLE_COMPAT=yes
+UPGRADE=yes
+#NEW_HOSTNAME=pinas
+# Give SMB_USER ownership of all existing files (ACTION=keep only)
+FIX_OWNERSHIP=no
+
+# Samba password: first line of this file (chmod 600 it).
+# Alternatively: export PINAS_SMB_PASSWORD=... and run with sudo -E
+SMB_PASSWORD_FILE=/root/smb-password
